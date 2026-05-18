@@ -12,7 +12,7 @@ Instead of relying on heavy client-side polling or manual browser refreshes, the
 
 ### Dashboard Preview
 <p align="center">
-  <img src="dashboard.png" width="850"> 
+  <img src="dashboard.png" width="850" title="Admin Portal Overview"> 
 </p>
 
 
