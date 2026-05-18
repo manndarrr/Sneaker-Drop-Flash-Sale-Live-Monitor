@@ -1,2 +1,66 @@
-# Sneaker-Drop-Flash-Sale-Live-Monitor
-A live order-tracking site for a sneaker raffle. Clients see orders change in real time (insert/update/delete) without polling, via Supabase Realtime over WebSockets.
+<div align="center">
+  <h1>👟 Sneaker Drop — Flash-Sale Live Monitor</h1>
+  <p><strong>Real-Time Hypebeast Order Tracker | Supabase Realtime (WebSockets) | TanStack Start</strong></p>
+  
+  <p>
+    <img src="https://img.shields.io/badge/React_19-61DAFB?style=for-the-badge&logo=react&logoColor=black" alt="React" />
+    <img src="https://img.shields.io/badge/TanStack_Start-FF4154?style=for-the-badge&logo=reactquery&logoColor=white" alt="TanStack" />
+    <img src="https://img.shields.io/badge/Supabase-3ECF8E?style=for-the-badge&logo=supabase&logoColor=white" alt="Supabase Realtime" />
+    <img src="https://img.shields.io/badge/Tailwind_CSS-06B6D4?style=for-the-badge&logo=tailwindcss&logoColor=white" alt="Tailwind" />
+  </p>
+</div>
+
+---
+
+## 📋 Project Overview
+**Sneaker Drop** is a high-performance, live-monitoring web application built to simulate flash-sale traffic and raffle completions during limited-edition sneaker releases. 
+
+Instead of relying on heavy client-side polling or manual browser refreshes, the platform uses **Supabase Realtime over WebSockets (via Postgres Change streams)** to instantly push state changes (placing orders, fulfillment status advances) directly to all active clients. The frontend is built using a raw, content-first aesthetic mimicking high-end streetwear editorial platforms like *StyleUps*, featuring a clean, minimalist off-white palette.
+
+---
+
+## 🏗️ Architectural Choice & Technical Approach
+
+### 1. Eliminating Client Polling (The Realtime Engine)
+To capture the rapid pace of an online flash sale, traditional HTTP polling introduces unnecessary server load and unacceptable data lag. This solution utilizes a **Postgres LISTEN/NOTIFY pipeline** exposed securely via Supabase WebSockets. 
+* The `orders` database table is added directly to the `supabase_realtime` publication channel.
+* By setting `REPLICA IDENTITY FULL`, Supabase broadcasts not just the row ID, but the entire mutated data payload on `INSERT`, `UPDATE`, and `DELETE` hooks.
+
+### 2. The Hybrid Server Infrastructure (TanStack Start)
+The project utilizes **TanStack Start**, combining React with a high-performance Node.js-based server runtime. 
+* **Frontend:** Kept intentionally lightweight, semantic, and CSS-driven using Tailwind tokens. It completely avoids over-engineered component libraries to preserve rendering speeds during heavy live streams.
+* **Backend State Simulation:** A background server-side ticker acts as a "hypebeast simulator." Controlled via client tab visibility, it randomly advances raffle orders from `pending` ➔ `shipped` ➔ `delivered`. This creates a living data system without polluting the client with artificial read logic.
+
+---
+
+## 🛠️ Database Schema & Migrations
+
+The backend schema utilizes two core tables built inside the Lovable Cloud environment:
+
+```sql
+-- Products Catalog
+CREATE TABLE products (
+    id uuid PRIMARY KEY DEFAULT gen_random_uuid(),
+    name text NOT NULL,
+    brand text NOT NULL,
+    colorway text NOT NULL,
+    price_cents integer NOT NULL,
+    image_path text NOT NULL,
+    sizes jsonb NOT NULL,
+    created_at timestamptz DEFAULT now()
+);
+
+-- Real-Time Raffle Orders
+CREATE TABLE orders (
+    id bigserial PRIMARY KEY, -- Using bigserial to provide rapid, human-readable integer sequences
+    customer_name text NOT NULL,
+    product_id uuid REFERENCES products(id) ON DELETE CASCADE,
+    product_name text NOT NULL, -- Snapshot field to prevent downstream JOIN latency during spikes
+    size text NOT NULL,
+    status text CHECK (status IN ('pending', 'shipped', 'delivered')) DEFAULT 'pending',
+    updated_at timestamptz DEFAULT now()
+);
+
+-- Enable Realtime Broadcast
+ALTER TABLE orders REPLICA IDENTITY FULL;
+ALTER PUBLICATION supabase_realtime ADD TABLE orders;
