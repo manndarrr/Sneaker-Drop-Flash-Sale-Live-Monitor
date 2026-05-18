@@ -25,7 +25,7 @@ Instead of relying on heavy client-side polling or manual browser refreshes, the
   <img src="Preview/tables.png" width="850" title="Preview">
 </p>
 
-### Live Drop before Updating Status in Database
+### Live Drop (before Updating Status in Database)
 <p align="center">
   <img src="Preview/live_drop_before_manipulations.png" width="850" title="Preview">
 </p>
@@ -40,7 +40,7 @@ Instead of relying on heavy client-side polling or manual browser refreshes, the
   <img src="Preview/orders_after_manipulation.png" width="850" title="Preview">
 </p>
 
-### Live Drop after Updating Status
+### Live Drop (after Updating Status in Database)
 <p align="center">
   <img src="Preview/live_drop_after_manipulation.png" width="850" title="Preview">
 </p>
