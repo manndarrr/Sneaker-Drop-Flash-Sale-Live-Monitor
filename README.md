@@ -1,25 +1,18 @@
 <div align="center">
-  <h1>👟 Sneaker Drop — Flash-Sale Live Monitor</h1>
+  <h1>Sneaker Drop — Flash-Sale Live Monitor</h1>
   <p><strong>Real-Time Hypebeast Order Tracker | Supabase Realtime (WebSockets) | TanStack Start</strong></p>
-  
-  <p>
-    <img src="https://img.shields.io/badge/React_19-61DAFB?style=for-the-badge&logo=react&logoColor=black" alt="React" />
-    <img src="https://img.shields.io/badge/TanStack_Start-FF4154?style=for-the-badge&logo=reactquery&logoColor=white" alt="TanStack" />
-    <img src="https://img.shields.io/badge/Supabase-3ECF8E?style=for-the-badge&logo=supabase&logoColor=white" alt="Supabase Realtime" />
-    <img src="https://img.shields.io/badge/Tailwind_CSS-06B6D4?style=for-the-badge&logo=tailwindcss&logoColor=white" alt="Tailwind" />
-  </p>
 </div>
 
 ---
 
-## 📋 Project Overview
+## Project Overview
 **Sneaker Drop** is a high-performance, live-monitoring web application built to simulate flash-sale traffic and raffle completions during limited-edition sneaker releases. 
 
 Instead of relying on heavy client-side polling or manual browser refreshes, the platform uses **Supabase Realtime over WebSockets (via Postgres Change streams)** to instantly push state changes (placing orders, fulfillment status advances) directly to all active clients. The frontend is built using a raw, content-first aesthetic mimicking high-end streetwear editorial platforms like *StyleUps*, featuring a clean, minimalist off-white palette.
 
 ---
 
-## 🏗️ Architectural Choice & Technical Approach
+## Architectural Choice & Technical Approach
 
 ### 1. Eliminating Client Polling (The Realtime Engine)
 To capture the rapid pace of an online flash sale, traditional HTTP polling introduces unnecessary server load and unacceptable data lag. This solution utilizes a **Postgres LISTEN/NOTIFY pipeline** exposed securely via Supabase WebSockets. 
@@ -33,9 +26,9 @@ The project utilizes **TanStack Start**, combining React with a high-performance
 
 ---
 
-## 🛠️ Database Schema & Migrations
+## Database Schema & Migrations
 
-The backend schema utilizes two core tables built inside the Lovable Cloud environment:
+The backend schema utilizes two core tables built inside the Cloud environment:
 
 ```sql
 -- Products Catalog
