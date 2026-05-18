@@ -12,10 +12,53 @@ Instead of relying on heavy client-side polling or manual browser refreshes, the
 
 ### Dashboard Preview
 <p align="center">
-  <img src="Preview/dashboard.png" width="850" title="Admin Portal Overview">
+  <img src="Preview/dashboard.png" width="850" title="Preview">
 </p>
 
+### Catalog
+<p align="center">
+  <img src="Preview/catalog.png" width="850" title="Preview">
+</p>
 
+### Profile
+<p align="center">
+  <img src="Preview/profile.png" width="850" title="Preview">
+</p>
+
+### Orders (Live Drop before Updating Status in Database)
+<p align="center">
+  <img src="Preview/live_drop_before_manipulations.png" width="850" title="Preview">
+</p>
+
+### Database
+<p align="center">
+  <img src="Preview/tables.png" width="850" title="Preview">
+</p>
+
+### orders Table (before Updating Status)
+<p align="center">
+  <img src="Preview/orders.png" width="850" title="Preview">
+</p>
+
+### orders Table (after Updating Status)
+<p align="center">
+  <img src="Preview/orders_after_manipulation.png" width="850" title="Preview">
+</p>
+
+### Orders (Live Drop after Updating Status)
+<p align="center">
+  <img src="Preview/live_drop_after_manipulation.png" width="850" title="Preview">
+</p>
+
+### profiles Table
+<p align="center">
+  <img src="Preview/profiles.png" width="850" title="Preview">
+</p>
+
+### products Table
+<p align="center">
+  <img src="Preview/products.png" width="850" title="Preview">
+</p>
 
 ---
 
