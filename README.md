@@ -20,11 +20,6 @@ Instead of relying on heavy client-side polling or manual browser refreshes, the
   <img src="Preview/catalog.png" width="850" title="Preview">
 </p>
 
-### Profile
-<p align="center">
-  <img src="Preview/profile.png" width="850" title="Preview">
-</p>
-
 ### Orders (Live Drop before Updating Status in Database)
 <p align="center">
   <img src="Preview/live_drop_before_manipulations.png" width="850" title="Preview">
@@ -58,6 +53,11 @@ Instead of relying on heavy client-side polling or manual browser refreshes, the
 ### products Table
 <p align="center">
   <img src="Preview/products.png" width="850" title="Preview">
+</p>
+
+### Profile
+<p align="center">
+  <img src="Preview/profile.png" width="850" title="Preview">
 </p>
 
 ---
