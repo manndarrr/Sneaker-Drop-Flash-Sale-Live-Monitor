@@ -20,14 +20,14 @@ Instead of relying on heavy client-side polling or manual browser refreshes, the
   <img src="Preview/catalog.png" width="850" title="Preview">
 </p>
 
-### Orders (Live Drop before Updating Status in Database)
-<p align="center">
-  <img src="Preview/live_drop_before_manipulations.png" width="850" title="Preview">
-</p>
-
 ### Database
 <p align="center">
   <img src="Preview/tables.png" width="850" title="Preview">
+</p>
+
+### Orders (Live Drop before Updating Status in Database)
+<p align="center">
+  <img src="Preview/live_drop_before_manipulations.png" width="850" title="Preview">
 </p>
 
 ### orders Table (before Updating Status)
