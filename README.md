@@ -10,6 +10,9 @@
 
 Instead of relying on heavy client-side polling or manual browser refreshes, the platform uses **Supabase Realtime over WebSockets (via Postgres Change streams)** to instantly push state changes (placing orders, fulfillment status advances) directly to all active clients. The frontend is built using a raw, content-first aesthetic mimicking high-end streetwear editorial platforms like *StyleUps*, featuring a clean, minimalist off-white palette.
 
+### Dashboard Preview
+
+
 ---
 
 ## Architectural Choice & Technical Approach
